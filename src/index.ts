@@ -1,15 +1,18 @@
-import express, { json, Request, Response } from "express";
+import express, { Express, json, Request, Response } from "express";
 import cors from "cors";
+import dotenv from "dotenv";
+import router from "./routes/index.js";
+dotenv.config();
 
-const server = express()
+const server: Express = express();
 
-server.use(json())
-server.use(cors())
+server
+  .use(json())
+  .use(cors())
+  .get("/health", (req: Request, res: Response) => res.send("Ok"))
+  .use(router)
 
-server.get("/health", (req: Request, res: Response) => {
-    res.send("Ok")
-})
-
-server.listen(4000, () => {
-    console.log(`Connected to port 4000`)
-})
+const port: string = process.env.PORT || '4000';
+server.listen(port, () => {
+    console.log(`Server running in port ${port}.`);
+});
