@@ -6,13 +6,12 @@ dotenv.config();
 
 const server: Express = express();
 
-server
-  .use(json())
-  .use(cors())
-  .get("/health", (req: Request, res: Response) => res.send("Ok"))
-  .use(router)
+server.use(json());
+server.use(cors());
+server.get("/health", (req: Request, res: Response) => res.send("Ok"));
+server.use(router);
 
-const port: string = process.env.PORT || '4000';
+const port: string = process.env.PORT || "4000";
 server.listen(port, () => {
-    console.log(`Server running in port ${port}.`);
+  console.log(`Server running in port ${port}.`);
 });
