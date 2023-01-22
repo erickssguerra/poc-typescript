@@ -87,39 +87,132 @@
 
 <details>
     <summary> <h2>🧭 Routes </h2></summary>
+<ul>
 
 <details><summary><h3> Customers routes </h3></summary>
 
 **<h4> Registering a customer </h4>**
 <ul>
-<li>POST `/register`</li>
+<li><span style="color: green">POST</span> `/register`</li>
 <li>Send customer via body as follow</li>
 
-    ```JSON
-    {
-        "name": "Customer Name",
-        "email": "test@test.com",
-        "cpf": "12345678910"
-    }
-    ```
+```JSON
+{
+    "name": "Customer Name",
+    "email": "test@test.com",
+    "cpf": "12345678910"
+}
+```
 
 <li> If succeed, receive an answer in the format:</li>
 
-    ```JSON
-    {
-        "message": "Customer Name was registered!"
-    }
-    ```
+```JSON
+{
+    "message": "Customer Name was registered!"
+}
+```
+
+</ul>
+</details></li>
+
+<details><summary><h3> Enrolments routes </h3></summary>
+
+**<h4> Enrolling a customer in a course</h4>**
+<ul>
+<li><span style="color: green">POST</span> `/enroll`</li>
+<li>Send a body containing the following infos</li>
+
+
+```JSON
+{
+    "customer_id": "1",
+    "course_id": "2"
+}
+```
+
+<li>If succeed, receive an answer in the format:</li>
+
+```JSON
+{
+    "message": "Success: Customer_X was enrolled into Course_X!"
+}
+```
+
+</ul>
+
+**<h4> Unenrolling a customer from a course </h4>**
+<ul>
+<li><span style="color: red">DELETE</span> `/enroll`</li>
+<li>Send a body containing the following infos</li>
+
+
+```JSON
+{
+    "customer_id": "1",
+    "course_id": "2"
+}
+```
+
+<li>If succeed, receive an answer in the format:</li>
+
+```JSON
+{
+    "message": "Success: Customer_X was unenrolled from Course_X!"
+}
+```
 
 </ul>
 </details>
 
-<details><summary><h3> Enrolments routes </h3></summary>
+<details><summary><h3> Courses routes </h3></summary>
+<ul>
 
-<h3> Enrolling a customer </h3>
-    - 
+**<h4>Rank of courses with higher number of enrollments</h4>**
+<ul>
+<li><span style="color: blue">GET</span> `/rank/courses` </li>
+<li>Optional a query `top` with a number, as the example below:</li>
 
-</details>
+```
+/rank/courses?top=3
+```
+<li>Response in the format:</li>
+
+```JSON
+[
+  {
+    "course": "LPO",
+    "customers": "7"
+  },
+  {
+    "course": "Dança",
+    "customers": "5"
+  },
+  {
+    "course": "Zumba",
+    "customers": "3"
+  }
+]
+```
+</ul>
+
+
+**<h4>Courses a customer is enrolled in</h4>**
+<ul>
+<li><span style="color: blue">GET</span> `/courses/:customer_id`</li>
+<li>`customer_id` is a number and required, as the example below:</li>
+
+```
+/courses/2
+```
+<li> </li>
+
+</ul>
+
+
+
+</ul>
+
+</ul>
 </details>
 
 <details>
