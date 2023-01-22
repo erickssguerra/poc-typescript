@@ -6,7 +6,7 @@ export async function sortRank(
   req: Request,
   res: Response,
   next: NextFunction
-) {
+): Promise<Response<Rank>> {
   const { top } = req.query;
   if (!top || Number(top) === 0) {
     try {
