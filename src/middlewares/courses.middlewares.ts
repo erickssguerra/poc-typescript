@@ -15,7 +15,7 @@ export async function sortCoursesRank(
       res.locals.rank = rank;
     } catch (err) {
       console.log(err);
-      res.sendStatus(500);
+      return res.sendStatus(500);
     }
   }
 
