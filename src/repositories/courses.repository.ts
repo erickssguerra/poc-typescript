@@ -32,7 +32,26 @@ async function getRankByTop(top: number) {
   return rank;
 }
 
+async function filterByCustomer(customer_id: number) {
+  const { rows } = await connectionDB.query(
+    `
+  SELECT 
+    ARRAY_AGG( courses.name) AS courses
+  FROM enrollments
+  LEFT JOIN courses ON enrollments.course_id = courses.id
+  WHERE enrollments.customer_id = $1;  
+;`,
+    [customer_id]
+  );
+  const courses: string[] = rows[0].courses;
+  if (!courses) {
+    throw { detail: `Customer is not enrolled to any course` };
+  }
+  return courses
+}
+
 export const coursesRepository = {
   getFullRank,
   getRankByTop,
+  filterByCustomer,
 };

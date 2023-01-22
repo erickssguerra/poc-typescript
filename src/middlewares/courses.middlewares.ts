@@ -34,3 +34,21 @@ export async function sortRank(
   }
   next();
 }
+
+export async function sortCourses(
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
+  const { customer_id } = req.params;
+  try {
+    const courses = await coursesRepository.filterByCustomer(
+      Number(customer_id)
+    );
+    res.locals.courses = courses;
+  } catch (err) {
+    console.log(err);
+    return res.status(500).send({ message: err.detail });
+  }
+  next();
+}
