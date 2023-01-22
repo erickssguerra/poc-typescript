@@ -1,14 +1,24 @@
 import { Router } from "express";
 import {
   getByCostumerId,
-  getRank,
+  getCoursesRank,
 } from "../controllers/courses.controllers.js";
-import { sortRank, sortCourses } from "../middlewares/courses.middlewares.js";
+import {
+  sortCoursesRank,
+  sortCourses,
+} from "../middlewares/courses.middlewares.js";
 import { customerExists } from "../middlewares/costumers.middleware.js";
+import { validateQuery } from "../middlewares/schemas.validation.js";
+import { topQuerySchema } from "../schemas/top-query.schema.js";
 
 const coursesRouter = Router();
 
-coursesRouter.get("/rank", sortRank, getRank);
+coursesRouter.get(
+  "/rank/courses",
+  validateQuery(topQuerySchema, "topQuery"),
+  sortCoursesRank,
+  getCoursesRank
+);
 coursesRouter.get(
   "/courses/:customer_id",
   customerExists,

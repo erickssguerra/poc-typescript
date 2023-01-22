@@ -5,6 +5,10 @@ export function validateBody(schema: ObjectSchema, parameter: string) {
   return validate(schema, "body", parameter);
 }
 
+export function validateQuery(schema: ObjectSchema, parameter: string) {
+  return validate(schema, "query", parameter);
+}
+
 export function validateParams(schema: ObjectSchema, parameter: string) {
   return validate(schema, "params", parameter);
 }

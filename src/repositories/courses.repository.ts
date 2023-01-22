@@ -1,5 +1,5 @@
 import connectionDB from "../database/connectionDB.js";
-import { Rank } from "../protocols/rank.js";
+import { CoursesRank } from "../protocols/courses-rank.js";
 
 async function getFullRank() {
   const { rows } = await connectionDB.query(`
@@ -11,7 +11,7 @@ async function getFullRank() {
   GROUP BY courses.name
   ORDER BY customers DESC;  
     ;`);
-  const rank: Rank[] = rows;
+  const rank: CoursesRank[] = rows;
   return rank;
 }
 async function getRankByTop(top: number) {
@@ -28,7 +28,7 @@ async function getRankByTop(top: number) {
   ;`,
     [top]
   );
-  const rank: Rank[] = rows;
+  const rank: CoursesRank[] = rows;
   return rank;
 }
 
@@ -47,7 +47,7 @@ async function filterByCustomer(customer_id: number) {
   if (!courses) {
     throw { detail: `Customer is not enrolled to any course` };
   }
-  return courses
+  return courses;
 }
 
 export const coursesRepository = {

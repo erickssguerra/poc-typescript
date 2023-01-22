@@ -1,4 +1,4 @@
-export type Rank = {
+export type CoursesRank = {
   course: string;
   customers: number;
 };

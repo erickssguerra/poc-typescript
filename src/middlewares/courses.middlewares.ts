@@ -1,16 +1,17 @@
 import { NextFunction, Request, Response } from "express";
-import { Rank } from "../protocols/rank.js";
+import { CoursesRank } from "../protocols/courses-rank.js";
 import { coursesRepository } from "../repositories/courses.repository.js";
 
-export async function sortRank(
+export async function sortCoursesRank(
   req: Request,
   res: Response,
   next: NextFunction
-): Promise<Response<Rank>> {
-  const { top } = req.query;
-  if (!top || Number(top) === 0) {
+): Promise<Response<CoursesRank>> {
+  const { top } = res.locals.topQuery;
+
+  if (!Number(top)) {
     try {
-      const rank: Rank[] = await coursesRepository.getFullRank();
+      const rank: CoursesRank[] = await coursesRepository.getFullRank();
       res.locals.rank = rank;
     } catch (err) {
       console.log(err);
@@ -18,14 +19,9 @@ export async function sortRank(
     }
   }
 
-  if ((!Number(top) && top && Number(top) !== 0) || Number(top) < 0) {
-    return res
-      .status(500)
-      .send({ message: "Query parameter must be a valid number!" });
-  }
   if (Number(top)) {
     try {
-      const rank: Rank[] = await coursesRepository.getRankByTop(Number(top));
+      const rank: CoursesRank[] = await coursesRepository.getRankByTop(Number(top));
       res.locals.rank = rank;
     } catch (err) {
       console.log(err);
