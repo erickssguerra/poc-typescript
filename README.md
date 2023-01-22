@@ -7,36 +7,41 @@
 </ul>
 
 <details>
-    <summary>
-        👣 Initial steps
-    </summary>
+<summary>
+<h2>👣 Initial steps</h2>
+</summary>
 
 <h3> Install all dependencies </h3>
 
 ```bash
     npm i 
 ```
-### Run the server API locally
+<h3> Run the server API locally </h3>
+
 ```bash
     npm run dev
 ```
-### Build the application (for deploy)
+
+<h3> Build the application (for deploy)</h3>
+
 ```bash
     npm run build
 ```
-### Start the application (for deploy)
+
+<h3> Start the application (for deploy)</h3>
+
 ```bash
     npm run start
 ```
 
-- You'll also need to download the database structure (see database section below)
+<p> ⚠️ You'll also need to download the database structure (see database section below) </p>
 
 </details>
 
 <details>
 
 <summary>
-<h3>🗂 Folders organization </h3>
+<h2>🗂 Folders organization </h2>
 </summary>
 
 ```
@@ -81,14 +86,15 @@
 </details>
 
 <details>
-    <summary>🧭 Routes</summary>
+    <summary> <h2>🧭 Routes </h2></summary>
 
-<h2> Customers routes </h2>
+<details><summary><h3> Customers routes </h3></summary>
 
-- Registering a customer
-    - POST `/register`
-    - Send customer via body as follow
-    
+**<h4> Registering a customer </h4>**
+<ul>
+<li>POST `/register`</li>
+<li>Send customer via body as follow</li>
+
     ```JSON
     {
         "name": "Customer Name",
@@ -97,7 +103,7 @@
     }
     ```
 
-    - If succeed, receive an answer in the format:
+<li> If succeed, receive an answer in the format:</li>
 
     ```JSON
     {
@@ -105,17 +111,20 @@
     }
     ```
 
-<h2> Enrolments routes </h2>
+</ul>
+</details>
 
-- Enrolling a customer
+<details><summary><h3> Enrolments routes </h3></summary>
+
+<h3> Enrolling a customer </h3>
     - 
 
-
+</details>
 </details>
 
 <details>
     <summary>
-    🗄️ Database
+    <h2>🗄️ Database</h2>
     </summary>
 
 - Database structure
