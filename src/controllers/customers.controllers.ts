@@ -9,6 +9,6 @@ export async function registerCustomer(req: Request, res: Response) {
     res.send({ message: `Success: ${customerName} was registered!` });
   } catch (err) {
     console.log(err);
-    res.status(500).send(err.detail);
+    res.status(500).send({ message: err.detail });
   }
 }
