@@ -9,7 +9,7 @@
 
 ### Install all dependencies
 
-    - After 
+    - After
 
 </details>
 
@@ -63,13 +63,15 @@
 </details>
 
 <details>
-<summary>🗄️ Database</summary>
+    <summary>
+    🗄️ Database
+    </summary>
 
-    ### Database structure
+- Database structure
 
     <img src="https://github.com/erickssguerra/poc-typescript/blob/main/src/database/dbdiagram.png" alt="database diagram">
 
-    ### Database dump
+- Database dump
 
     [Dump file](https://github.com/erickssguerra/poc-typescript/blob/main/src/database/dump.sql)
 
