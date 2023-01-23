@@ -259,7 +259,7 @@
 
 <h3>Database structure</h3>
 <ul>
-<li><img src="https://github.com/erickssguerra/poc-typescript/blob/main/src/database/dbdiagram.png" alt="database diagram"></li>
+<img src="https://github.com/erickssguerra/poc-typescript/blob/main/src/database/dbdiagram.png" alt="database diagram">
 </ul>
 <h3>Database dump</h3>
 <ul>
