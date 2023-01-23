@@ -255,7 +255,7 @@
 
 <details>
     <summary><h2>🗄️ Database</h2></summary>
-
+<ul>
 
 <h3>Database structure</h3>
 <ul>
@@ -264,5 +264,6 @@
 <h3>Database dump</h3>
 <ul>
 <li> <a href="https://github.com/erickssguerra/poc-typescript/blob/main/src/database/dump.sql">Dump file</a> </li>
+</ul>
 </ul>
 </details>
