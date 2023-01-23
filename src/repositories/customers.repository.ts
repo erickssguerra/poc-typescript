@@ -1,5 +1,5 @@
 import connectionDB from "../database/connectionDB.js";
-import Customer from "../protocols/customer.js";
+import { Customer, EmailUpdateForm } from "../protocols/customer.js";
 import { CustomersRank } from "../protocols/customers-rank.js";
 
 async function insertCustomer(customer: Customer) {
@@ -58,9 +58,27 @@ async function getRankByTop(top: number) {
   return rank;
 }
 
+async function updateEmail(emailForm: EmailUpdateForm) {
+  const { rows } = await connectionDB.query(
+    `
+  UPDATE customers
+  SET email = $1
+  WHERE email = $2
+  RETURNING name;
+  ;`,
+    [emailForm.new_email, emailForm.previous_email]
+  );
+  const name: string = rows[0]?.name;
+  if (!name) {
+    throw { detail: `There's no ${emailForm.previous_email} registered.` };
+  }
+  return name;
+}
+
 export const customersRepository = {
   insertCustomer,
   checkCustomer,
   getFullRank,
   getRankByTop,
+  updateEmail,
 };
