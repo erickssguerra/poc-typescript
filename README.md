@@ -1,15 +1,16 @@
 <h1> POC - Typescript - DrivenFit </h1>
 <ul> 
     <li> In this back-end project, a simple system of a Gym is used as a Proof of concept (POC) of TypeScript coding.</li>
-    <li>A CRUD (Create, Update and Delete) protocol was used for manage two self-explained tables: `Customers` and `Enrollments`.</li>
-    <li>The table `Courses` (with gym courses in Portuguese) is already created in the database;</li>
-    <li>Furthermore, ranking routes are implemented, aggregating the `courses` and `customers` metrics (see routes below).</li>
+    <li>A CRUD (Create, Update and Delete) protocol was used for manage two self-explained tables: <code>customers</code> and <code>enrollments</code>.</li>
+    <li>The table <code>courses</code> (with gym courses in Portuguese) is already created in the database;</li>
+    <li>Furthermore, ranking routes are implemented, aggregating the <code>courses</code> and <code>customers</code> metrics (see routes below).</li>
 </ul>
 
 <details>
 <summary>
 <h2>👣 Initial steps</h2>
 </summary>
+<ul>
 
 <h3> Install all dependencies </h3>
 
@@ -35,7 +36,7 @@
 ```
 
 <p> ⚠️ You'll also need to download the database structure (see database section below) </p>
-
+</ul>
 </details>
 
 <details>
@@ -43,46 +44,47 @@
 <summary>
 <h2>🗂 Folders organization </h2>
 </summary>
+<ul>
 
 ```
-    ├── README.md
-    ├── package-lock.json
-    ├── package.json
-    ├── 📁 src
-    │   ├── 📁 controllers
-    │   │   ├── courses.controllers.ts
-    │   │   ├── customers.controllers.ts
-    │   │   └── enrollments.controllers.ts
-    │   ├── 📁 database
-    │   │   ├── connectionDB.ts
-    │   │   └── dbdiagram.png
-    │   ├── index.ts
-    │   ├── 📁 middlewares
-    │   │   ├── courses.middlewares.ts
-    │   │   ├── customers.middleware.ts
-    │   │   └── schemas.validation.ts
-    │   ├── 📁 protocols
-    │   │   ├── courses-rank.ts
-    │   │   ├── customer.ts
-    │   │   ├── customers-rank.ts
-    │   │   └── enrollment.ts
-    │   ├── 📁 repositories
-    │   │   ├── courses.repository.ts
-    │   │   ├── customers.repository.ts
-    │   │   └── enrollments.repository.ts
-    │   ├── 📁 routes
-    │   │   ├── courses.routes.ts
-    │   │   ├── customers.routes.ts
-    │   │   ├── enrollments.routes.ts
-    │   │   └── index.ts
-    │   ├── 📁 schemas
-    │   │   ├── customer.schema.ts
-    │   │   ├── enrollment.schema.ts
-    │   │   └── top-query.schema.ts
-    │   └── 📁 services
-    └── tsconfig.json
+├── README.md
+├── package-lock.json
+├── package.json
+├── 📁 src
+│   ├── 📁 controllers
+│   │   ├── courses.controllers.ts
+│   │   ├── customers.controllers.ts
+│   │   └── enrollments.controllers.ts
+│   ├── 📁 database
+│   │   ├── connectionDB.ts
+│   │   └── dbdiagram.png
+│   ├── index.ts
+│   ├── 📁 middlewares
+│   │   ├── courses.middlewares.ts
+│   │   ├── customers.middleware.ts
+│   │   └── schemas.validation.ts
+│   ├── 📁 protocols
+│   │   ├── courses-rank.ts
+│   │   ├── customer.ts
+│   │   ├── customers-rank.ts
+│   │   └── enrollment.ts
+│   ├── 📁 repositories
+│   │   ├── courses.repository.ts
+│   │   ├── customers.repository.ts
+│   │   └── enrollments.repository.ts
+│   ├── 📁 routes
+│   │   ├── courses.routes.ts
+│   │   ├── customers.routes.ts
+│   │   ├── enrollments.routes.ts
+│   │   └── index.ts
+│   ├── 📁 schemas
+│   │   ├── customer.schema.ts
+│   │   ├── enrollment.schema.ts
+│   │   └── top-query.schema.ts
+│   └── 📁 services
+└── tsconfig.json
 ```
-
+</ul>
 </details>
 
 <details>
