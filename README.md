@@ -15,24 +15,35 @@
 <h3> Install all dependencies </h3>
 
 ```bash
-    npm i 
+npm i 
 ```
+<h3> Create the <code>.env</code> file following the <code>.env.example</code> file in the root folder </h3>
+<li>Example of <code>.env</code> file:</li>
+
+```
+PORT=4000
+
+DATABASE_URL=postgresql://postgres:12345@localhost:5432/driven_fit?schema=public
+```
+
+
+
 <h3> Run the server API locally </h3>
 
 ```bash
-    npm run dev
+npm run dev
 ```
 
 <h3> Build the application (for deploy)</h3>
 
 ```bash
-    npm run build
+npm run build
 ```
 
 <h3> Start the application (for deploy)</h3>
 
 ```bash
-    npm run start
+npm run start
 ```
 
 <p> ⚠️ You'll also need to download the database structure (see database section below) </p>
