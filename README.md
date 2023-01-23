@@ -68,7 +68,8 @@ npm run start
 │   │   └── enrollments.controllers.ts
 │   ├── 📁 database
 │   │   ├── connectionDB.ts
-│   │   └── dbdiagram.png
+│   │   ├── dbdiagram.png
+│   │   └── dump.sql
 │   ├── index.ts
 │   ├── 📁 middlewares
 │   │   ├── courses.middlewares.ts
@@ -121,11 +122,34 @@ npm run start
 
 ```JSON
 {
-    "message": "Customer Name was registered!"
+    "message": "Customer_name was registered!"
 }
 ```
 
 </ul>
+
+**<h4> 👉🏻 Updating a customer's email </h4>**
+<ul>
+<li><span style="color: cyan">PUT</span> <code>/update/email</code></li>
+<li>Send the infos via body as follow</li>
+
+```JSON
+{
+    "new_email": "new_email@example.com",
+    "previous_email": "previous_email@example.com"
+}
+```
+
+<li> If succeed, receive an answer in the format:</li>
+
+```JSON
+{
+    "message": "Customer_name's email updated!"
+}
+```
+
+</ul>
+
 </details></li>
 
 <details><summary><h3> Enrolments routes </h3></summary>
