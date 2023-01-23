@@ -91,9 +91,9 @@
 
 <details><summary><h3> Customers routes </h3></summary>
 
-**<h4> Registering a customer </h4>**
+**<h4> 👉🏻 Registering a customer </h4>**
 <ul>
-<li><span style="color: green">POST</span> `/register`</li>
+<li><span style="color: green">POST</span> <code>/register</code></li>
 <li>Send customer via body as follow</li>
 
 ```JSON
@@ -117,9 +117,9 @@
 
 <details><summary><h3> Enrolments routes </h3></summary>
 
-**<h4> Enrolling a customer in a course</h4>**
+**<h4> 👉🏻 Enrolling a customer in a course</h4>**
 <ul>
-<li><span style="color: green">POST</span> `/enroll`</li>
+<li><span style="color: green">POST</span> <code>/enroll</code></li>
 <li>Send a body containing the following infos</li>
 
 
@@ -138,11 +138,12 @@
 }
 ```
 
+
 </ul>
 
-**<h4> Unenrolling a customer from a course </h4>**
+**<h4> 👉🏻 Unenrolling a customer from a course </h4>**
 <ul>
-<li><span style="color: red">DELETE</span> `/enroll`</li>
+<li><span style="color: red">DELETE</span> <code> /enroll</code></li>
 <li>Send a body containing the following infos</li>
 
 
@@ -162,15 +163,47 @@
 ```
 
 </ul>
+
+
+**<h4> 👉🏻 Rank of customers with higher number of enrolements</h4>**
+<ul>
+<li><span style="color: blue">GET</span> <code>/rank/customers</code></li>
+<li>Optional a query <code>top</code> with a number, as the example below:</li>
+
+```
+/rank/customers?top=3
+```
+<li>Response in the format:</li>
+
+```JSON
+[
+  {
+    "customer": "Érick",
+    "courses": "5"
+  },
+  {
+    "customer": "Brun0",
+    "courses": "4"
+  },
+  {
+    "customer": "Jader",
+    "courses": "3"
+  }
+]
+```
+
+</ul>
+
+
 </details>
 
 <details><summary><h3> Courses routes </h3></summary>
-<ul>
 
-**<h4>Rank of courses with higher number of enrollments</h4>**
+
+**<h4> 👉🏻 Rank of courses with higher number of enrollments</h4>**
 <ul>
-<li><span style="color: blue">GET</span> `/rank/courses` </li>
-<li>Optional a query `top` with a number, as the example below:</li>
+<li><span style="color: blue">GET</span> <code>/rank/courses</code> </li>
+<li>Optional a query <code>top</code> with a number, as the example below:</li>
 
 ```
 /rank/courses?top=3
@@ -196,36 +229,40 @@
 </ul>
 
 
-**<h4>Courses a customer is enrolled in</h4>**
+**<h4> 👉🏻 Courses that a customer is enrolled in</h4>**
 <ul>
-<li><span style="color: blue">GET</span> `/courses/:customer_id`</li>
-<li>`customer_id` is a number and required, as the example below:</li>
+<li><span style="color: blue">GET</span> <code>/courses/:customer_id</code></li>
+<li><code>customer_id</code> is a number and required, as the example below:</li>
 
 ```
 /courses/2
 ```
-<li> </li>
+<li>Response in the format of an array, as shown below:</li>
 
-</ul>
-
-
-
+```JSON
+[
+  "Spining",
+  "Funcional",
+  "Dança",
+  "LPO",
+  "Hidroginástica"
+]
+```
 </ul>
 
 </ul>
 </details>
 
 <details>
-    <summary>
-    <h2>🗄️ Database</h2>
-    </summary>
+    <summary><h2>🗄️ Database</h2></summary>
 
-- Database structure
 
-    <img src="https://github.com/erickssguerra/poc-typescript/blob/main/src/database/dbdiagram.png" alt="database diagram">
-
-- Database dump
-
-    [Dump file](https://github.com/erickssguerra/poc-typescript/blob/main/src/database/dump.sql)
-
+<h3>Database structure</h3>
+<ul>
+<li><img src="https://github.com/erickssguerra/poc-typescript/blob/main/src/database/dbdiagram.png" alt="database diagram"></li>
+</ul>
+<h3>Database dump</h3>
+<ul>
+<li> <a href="https://github.com/erickssguerra/poc-typescript/blob/main/src/database/dump.sql">Dump file</a> </li>
+</ul>
 </details>
