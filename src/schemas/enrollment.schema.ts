@@ -1,6 +1,6 @@
-import joi from "joi";
+import joi, { ObjectSchema } from "joi";
 
-export const enrollmentSchema = joi.object({
-    customer_id: joi.number().required(),
-    course_id: joi.number().required()
+export const enrollmentSchema: ObjectSchema = joi.object({
+  customer_id: joi.number().required(),
+  course_id: joi.number().required(),
 });

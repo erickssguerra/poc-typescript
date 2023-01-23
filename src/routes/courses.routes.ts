@@ -11,7 +11,7 @@ import { customerExists } from "../middlewares/customers.middleware.js";
 import { validateQuery } from "../middlewares/schemas.validation.js";
 import { topQuerySchema } from "../schemas/top-query.schema.js";
 
-const coursesRouter = Router();
+const coursesRouter: Router = Router();
 
 coursesRouter.get(
   "/rank/courses",

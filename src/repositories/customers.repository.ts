@@ -2,14 +2,15 @@ import connectionDB from "../database/connectionDB.js";
 import { Customer, EmailUpdateForm } from "../protocols/customer.js";
 import { CustomersRank } from "../protocols/customers-rank.js";
 
-async function insertCustomer(customer: Customer) {
+async function insertCustomer(customer: Customer): Promise<string> {
   const { rows } = await connectionDB.query(
     `
          INSERT INTO "customers" ("name", "cpf", "email") 
          VALUES ($1, $2, $3) RETURNING name as customer_name;`,
     [customer.name, customer.cpf, customer.email]
   );
-  return rows[0].customer_name;
+  const name: string = rows[0].customer_name;
+  return name;
 }
 
 async function checkCustomer(customer_id: number): Promise<boolean> {
@@ -26,7 +27,7 @@ async function checkCustomer(customer_id: number): Promise<boolean> {
   }
 }
 
-async function getFullRank() {
+async function getFullRank(): Promise<CustomersRank[]> {
   const { rows } = await connectionDB.query(`
   SELECT 
     customers.name AS customer,
@@ -40,7 +41,7 @@ async function getFullRank() {
   return rank;
 }
 
-async function getRankByTop(top: number) {
+async function getRankByTop(top: number): Promise<CustomersRank[]> {
   const { rows } = await connectionDB.query(
     `
   SELECT 
@@ -58,7 +59,7 @@ async function getRankByTop(top: number) {
   return rank;
 }
 
-async function updateEmail(emailForm: EmailUpdateForm) {
+async function updateEmail(emailForm: EmailUpdateForm): Promise<string> {
   const { rows } = await connectionDB.query(
     `
   UPDATE customers

@@ -19,7 +19,7 @@ async function enroll(enrollment: Enrollment): Promise<EnrollmentDetails> {
   return confirmation;
 }
 
-async function unenroll(unerollment: Enrollment) {
+async function unenroll(unerollment: Enrollment): Promise<EnrollmentDetails> {
   await connectionDB.query(`
   DO $$
   BEGIN

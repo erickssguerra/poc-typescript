@@ -6,7 +6,7 @@ export async function customerExists(
   req: Request,
   res: Response,
   next: NextFunction
-) {
+): Promise<Response> {
   const { customer_id } = req.params;
   if (!Number(customer_id) || Number(customer_id) <= 0) {
     return res

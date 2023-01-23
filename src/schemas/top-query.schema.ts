@@ -1,5 +1,5 @@
-import joi from "joi";
+import joi, { ObjectSchema } from "joi";
 
-export const topQuerySchema = joi.object({
-    top: joi.number().min(0)
+export const topQuerySchema: ObjectSchema = joi.object({
+  top: joi.number().min(0),
 });

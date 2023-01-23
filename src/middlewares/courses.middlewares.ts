@@ -21,7 +21,9 @@ export async function sortCoursesRank(
 
   if (Number(top)) {
     try {
-      const rank: CoursesRank[] = await coursesRepository.getRankByTop(Number(top));
+      const rank: CoursesRank[] = await coursesRepository.getRankByTop(
+        Number(top)
+      );
       res.locals.rank = rank;
     } catch (err) {
       console.log(err);
@@ -35,7 +37,7 @@ export async function sortCourses(
   req: Request,
   res: Response,
   next: NextFunction
-) {
+): Promise<Response<CoursesRank[]>> {
   const { customer_id } = req.params;
   try {
     const courses = await coursesRepository.filterByCustomer(
