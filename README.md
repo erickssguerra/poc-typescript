@@ -21,9 +21,13 @@ npm i
 <li>Example of <code>.env</code> file:</li>
 
 ```
-PORT=4000
+POSTGRES_USERNAME= 
+POSTGRES_PASSWORD= 
+POSTGRES_HOST= 
+POSTGRES_PORT= 
+POSTGRES_DATABASE= 
 
-DATABASE_URL=postgresql://postgres:12345@localhost:5432/driven_fit?schema=public
+PORT=
 ```
 
 
